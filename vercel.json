@@ -1,8 +1,27 @@
 {
-  "buildCommand": "npm run vercel-build",
-  "outputDirectory": "Readit/dist",
+  "$schema": "https://vercel.sh",
+  "services": {
+    "backend": {
+      "root": "backend",
+      "framework": "express"
+    },
+    "readit": {
+      "root": "Readit",
+      "framework": "vite"
+    }
+  },
   "rewrites": [
-    { "source": "/notes(.*)", "destination": "/backend/index.js" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/notes(.*)",
+      "destination": {
+        "service": "backend"
+      }
+    },
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "readit"
+      }
+    }
   ]
-}
+}   
