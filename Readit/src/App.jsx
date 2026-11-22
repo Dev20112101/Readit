@@ -1,8 +1,10 @@
 import { useEffect, useMemo, useState } from 'react';
 import './App.css';
 
-const API_BASE = 'http://localhost:3000';
-
+const API_BASE =
+  import.meta.env.VITE_API_URL ??
+  (import.meta.env.DEV ? 'http://localhost:3000' : '');
+  
 function formatTimeAgo(rawDate) {
   if (!rawDate) return 'just now';
   const parsed = new Date(rawDate);

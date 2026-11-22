@@ -1,0 +1,7 @@
+{
+  "name": "readit-monorepo",
+  "private": true,
+  "scripts": {
+    "vercel-build": "npm install --prefix backend && npm install --prefix Readit && npm run build --prefix Readit"
+  }
+}
